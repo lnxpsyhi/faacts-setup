@@ -1,18 +1,16 @@
 import { Card, CardHeader, CardTitle, CardDescription, CardAction, CardContent, CardFooter } from './ui/card';
 import CounterButton from './CounterButton';
 import { Minus, Plus, RotateCcw } from 'lucide-react';
-import { decrement, increment, reset, setByValue } from '@/lib/features/counterSlice';
-import { useAppDispatch, useAppSelector } from '@/lib/hooks';
+import { decrement, increment, reset } from '@/lib/features/counterSlice';
+
 import { Toaster } from 'sonner';
-import { Dialog, DialogTrigger, DialogContent, DialogTitle, DialogDescription, DialogHeader, DialogFooter } from './ui/dialog';
-import { Button } from './ui/button';
-import { Input } from './ui/input';
-import { DialogClose } from '@radix-ui/react-dialog';
+import { useAppSelector } from '@/lib/hooks';
+import NumberPrompt from './NumberPrompt';
 
 const CounterCard = () => {
-    const dispatch = useAppDispatch()
+
     const count = useAppSelector((state) => state.counter.value);
-    const byValue = useAppSelector((state) => state.counter.byValue);
+
 
     return (
         <>
@@ -38,36 +36,7 @@ const CounterCard = () => {
                         <CounterButton action={decrement()} variant='outline' tooltip=''>
                             <Minus />
                         </CounterButton>
-
-                        <Dialog>
-                            <DialogTrigger>
-                                <Button variant='secondary' >Increment by value</Button>
-                            </DialogTrigger>
-                            <DialogContent>
-
-                                <DialogHeader>
-                                    <DialogTitle>Input a number</DialogTitle>
-                                    <DialogDescription>
-                                        Increment the counter by
-                                    </DialogDescription>
-                                    <Input type='number' placeholder='Enter a number' onChange={(e) => {
-                                        try {
-                                            e.preventDefault();
-                                            const val = Number.parseInt(e.target.value);
-                                            dispatch(setByValue(val));
-                                        } catch (e) {
-                                            console.error(e);
-                                        }
-                                    }} value={byValue} />
-
-                                </DialogHeader>
-                                <DialogFooter>
-                                    <DialogClose>
-                                        <Button about='test'>Ok</Button>
-                                    </DialogClose>
-                                </DialogFooter>
-                            </DialogContent>
-                        </Dialog>
+                        <NumberPrompt />
                     </div>
                 </CardFooter>
             </Card >
