@@ -3,11 +3,13 @@ import { RootState } from "../store";
 import { toast } from "sonner";
 
 export interface CounterState {
-    value: number,
+    value: number;
+    byValue: number;
 }
 
 const initialState: CounterState = {
-    value: 0
+    value: 0,
+    byValue: 1,
 };
 
 export const counterSlice = createSlice({
@@ -15,13 +17,10 @@ export const counterSlice = createSlice({
     initialState,
     reducers: {
         increment: (state) => {
-            state.value += 1;
+            state.value += state.byValue;
         },
         decrement: (state) => {
             state.value -= 1;
-        },
-        incrementByValue: (state, action: PayloadAction<number>) => {
-            state.value += action.payload;
         },
         reset: (state) => {
             state.value = 0;
@@ -29,10 +28,13 @@ export const counterSlice = createSlice({
                 description: 'The counter has been reset.',
                 position: 'top-center',
             });
+        },
+        setByValue: (state, action: PayloadAction<number>) => {
+            state.byValue = action.payload;
         }
     }
 });
 
-export const { increment, decrement, incrementByValue, reset } = counterSlice.actions;
+export const { increment, decrement, reset, setByValue } = counterSlice.actions;
 export const selectCount = (state: RootState) => state.counter.value;
 export default counterSlice.reducer

@@ -1,7 +1,5 @@
 import CounterCard from '@/components/CounterCard';
 
-
-
 export function Main() {
 
   return (
