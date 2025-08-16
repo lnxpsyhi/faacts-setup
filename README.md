@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# Farm + React + Redux
-=======
 # Farm + React + Redux 
->>>>>>> a99b903a637f7457044903fbf300890cf6d2d2ec
 
 This template should help you start developing using React and TypeScript in Farm.
 
