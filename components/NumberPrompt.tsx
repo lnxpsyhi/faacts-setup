@@ -1,3 +1,4 @@
+
 import { Dialog, DialogTrigger, DialogContent, DialogTitle, DialogDescription, DialogHeader, DialogFooter } from './ui/dialog';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
@@ -14,7 +15,7 @@ const NumberPrompt = () => {
             <DialogTrigger>
                 <Button variant='secondary' >Increment by value</Button>
             </DialogTrigger>
-            <DialogContent>
+            <DialogContent showCloseButton={false}>
 
                 <DialogHeader>
                     <DialogTitle>Input a number</DialogTitle>
@@ -34,7 +35,7 @@ const NumberPrompt = () => {
                 </DialogHeader>
                 <DialogFooter>
                     <DialogClose>
-                        <Button about='test'>Ok</Button>
+                        <Button>Ok</Button>
                     </DialogClose>
                 </DialogFooter>
             </DialogContent>

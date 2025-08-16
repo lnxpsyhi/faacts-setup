@@ -1,3 +1,5 @@
+"use client";
+
 import { Card, CardHeader, CardTitle, CardDescription, CardAction, CardContent, CardFooter } from './ui/card';
 import CounterButton from './CounterButton';
 import { Minus, Plus, RotateCcw } from 'lucide-react';
