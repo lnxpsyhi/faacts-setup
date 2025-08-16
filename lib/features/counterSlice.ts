@@ -27,7 +27,7 @@ export const counterSlice = createSlice({
             state.value = 0;
             toast('Action done!', {
                 description: 'The counter has been reset.',
-                position: 'top-center'
+                position: 'top-center',
             });
         }
     }

@@ -16,7 +16,7 @@ const CounterCard = () => {
                     <CardTitle>Counter</CardTitle>
                     <CardDescription>A simple counter</CardDescription>
                     <CardAction>
-                        {(count > 0 || count < 0) && <CounterButton className='' action={reset()} variant='destructive'>
+                        {(count > 0 || count < 0) && <CounterButton className='' action={reset()} variant='destructive' tooltip='Reset the counter'>
                             <RotateCcw />
                         </CounterButton>}
 
@@ -27,10 +27,10 @@ const CounterCard = () => {
                 </CardContent >
                 <CardFooter>
                     <div className='flex flex-row gap-x-1'>
-                        <CounterButton action={increment()} variant='outline'>
+                        <CounterButton action={increment()} variant='outline' tooltip=''>
                             <Plus />
                         </CounterButton>
-                        <CounterButton action={decrement()} variant='outline'>
+                        <CounterButton action={decrement()} variant='outline' tooltip=''>
                             <Minus />
                         </CounterButton>
                     </div>
